@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KindPlate - Food Donation App</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: green;
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        ul {
+            margin-top: 20px;
+        }
+
+        li {
+            background-color: #e6ffe6;
+            margin-top: 8px;
+            padding: 8px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🍽️ KindPlate</h1>
+    <p style="text-align:center;">Share extra food. Reduce waste.</p>
+
+    <div class="box">
+        <input type="text" id="food" placeholder="Food Item">
+        <input type="text" id="location" placeholder="Location">
+        <button onclick="addFood()">Add Food</button>
+
+        <ul id="list"></ul>
+    </div>
+
+    <script>
+        function addFood() {
+            var foodName = document.getElementById("food").value;
+            var place = document.getElementById("location").value;
+
+            if (foodName === "" || place === "") {
+                alert("Please fill all details");
+                return;
+            }
+
+            var li = document.createElement("li");
+            li.innerText = foodName + " available at " + place;
+
+            document.getElementById("list").appendChild(li);
+
+            document.getElementById("food").value = "";
+            document.getElementById("location").value = "";
+        }
+    </script>
+
+</body>
+</html>
